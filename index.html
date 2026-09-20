@@ -577,9 +577,26 @@ function setMode(m){
   document.getElementById('modeStudyBtn').classList.toggle('active', m==='study');
 }
 
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// Baraja las opciones de cada pregunta y recalcula dónde quedó la correcta,
+// para que la respuesta nunca esté siempre en el mismo lugar.
+function shuffleOptions(item){
+  const correctText = item.a[item.c];
+  const opts = shuffle(item.a);
+  return { q: item.q, a: opts, c: opts.indexOf(correctText), e: item.e };
+}
+
 function startGame(deck){
   currentDeck = deck;
-  questions = DECKS[deck].slice().sort(()=>Math.random()-0.5);
+  questions = shuffle(DECKS[deck]).map(shuffleOptions);
   idx = 0; score = 0; streak = 0; results = [];
   document.getElementById('qtotal').textContent = questions.length;
   document.getElementById('qdecklabel').textContent = DECK_META[deck].label;
