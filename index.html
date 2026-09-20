@@ -79,6 +79,8 @@
   .deck-card.a3{ border-color: rgba(82,183,136,.25); } .deck-card.a3 .icon{background:rgba(82,183,136,.14);} .deck-card.a3 .tag{color:var(--a3);}
   .deck-card.geni{ border-color: rgba(78,168,222,.25); } .deck-card.geni .icon{background:rgba(78,168,222,.14);} .deck-card.geni .tag{color:var(--geni);}
   .deck-card.a4{ border-color: rgba(180,140,230,.3); } .deck-card.a4 .icon{background:rgba(180,140,230,.16);} .deck-card.a4 .tag{color:#b48ce6;}
+  .deck-card.d1{ border-color: rgba(242,166,90,.3); } .deck-card.d1 .icon{background:rgba(242,166,90,.16);} .deck-card.d1 .tag{color:#f2a65a;}
+  .deck-card.d2{ border-color: rgba(236,111,158,.3); } .deck-card.d2 .icon{background:rgba(236,111,158,.16);} .deck-card.d2 .tag{color:#ec6f9e;}
   .deck-card.mix{ grid-column: 1 / -1; border-color: rgba(255,255,255,.18); }
   .deck-card.mix .icon{ background: rgba(255,255,255,.10); }
   .deck-card.mix .tag{ color: var(--ink); }
@@ -177,13 +179,37 @@
 
   <div id="menu" class="menu">
     <h1>Parcial de <span>Histología</span></h1>
-    <p class="sub">Digestivo, Urinario, Respiratorio, Linfático y el Cuestionario oficial del 2° Parcial — modo contrarreloj.</p>
+    <p class="sub">Digestivo I, II y III, Urinario, Respiratorio, Linfático y el Cuestionario oficial del 2° Parcial — modo contrarreloj.</p>
     <p class="author">Repaso personal — Yanina Sebriano</p>
     <div class="mode-toggle">
       <button id="modeQuizBtn" class="mode-btn active" onclick="setMode('quiz')">🎮 Quiz (con opciones)</button>
       <button id="modeStudyBtn" class="mode-btn" onclick="setMode('study')">🧠 Estudio (recordá antes de ver)</button>
     </div>
     <div class="deck-grid">
+
+      <div class="deck-card d1" onclick="startGame('digestivo1')">
+        <span class="count">33</span>
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#f2a65a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8c3-2.5 13-2.5 16 0"/><path d="M4 8c0 3.5 3.5 5.5 8 5.5S20 11.5 20 8"/><path d="M8 13.5V20"/><path d="M12 14v6.5"/><path d="M16 13.5V20"/></svg>
+        </div>
+        <div class="txt">
+          <span class="tag">DIGESTIVO I</span>
+          <h3>Pared del tubo, boca, lengua y esófago</h3>
+          <p>Las 4 capas, plexos de Meissner y Auerbach, papilas, botones gustativos, dientes, salivales y esófago.</p>
+        </div>
+      </div>
+
+      <div class="deck-card d2" onclick="startGame('digestivo2')">
+        <span class="count">34</span>
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ec6f9e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3c0 2.5-1.5 3-3 4.5S3.5 12 5 14"/><path d="M9 3c3 0 6 2 6.5 5.5.4 2.8 2 3 2.5 5 .6 2.4-1 5.5-4.5 5.5-3 0-4-2-6.5-2"/><path d="M5 14c-1 1.5-.5 3.5 1.5 4"/></svg>
+        </div>
+        <div class="txt">
+          <span class="tag">DIGESTIVO II</span>
+          <h3>Estómago, intestino delgado y grueso</h3>
+          <p>Glándulas fúndicas, parietales y principales, criptas de Lieberkühn, Brunner, Peyer, tenias y conducto anal.</p>
+        </div>
+      </div>
 
       <div class="deck-card a1" onclick="startGame('hepato')">
         <span class="count">10</span>
@@ -246,13 +272,13 @@
       </div>
 
       <div class="deck-card mix" onclick="startGame('todo')">
-        <span class="count">127</span>
+        <span class="count">194</span>
         <div class="icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v16"/><path d="M4 12h16"/></svg>
         </div>
         <div class="txt">
           <span class="tag">REPASO TOTAL</span>
-          <h3>Las 127 preguntas mezcladas</h3>
+          <h3>Las 194 preguntas mezcladas</h3>
           <p>Todo el banco junto y al azar — la vuelta final antes del parcial.</p>
         </div>
       </div>
@@ -287,11 +313,13 @@
     <button class="btn-ghost" onclick="startGame(currentDeck)">Repetir</button>
   </div>
 
-  <div class="foot-note">📚 Banco de preguntas elaborado a partir de los apuntes propios de Yanina Sebriano (TP de Histología — Digestivo/Urinario), los resúmenes de Sistema Respiratorio y Sistema Linfático, y el Cuestionario oficial del 2° Parcial (Instructora Bruna Bridi). Las respuestas de este último fueron resueltas por IA en base al material de clase — revisá con la profesora las marcadas como dudosas.</div>
+  <div class="foot-note">📚 Banco de preguntas elaborado a partir de los apuntes propios de Yanina Sebriano (TP de Histología — Sistema Digestivo completo y Urinario), los resúmenes de Sistema Respiratorio y Sistema Linfático, y el Cuestionario oficial del 2° Parcial (Instructora Bruna Bridi). Las respuestas de este último fueron resueltas por IA en base al material de clase — revisá con la profesora las marcadas como dudosas.</div>
 </div>
 
 <script>
 const DECK_META = {
+  digestivo1:   {label:"DIGESTIVO I · Pared del tubo, boca, lengua y esófago"},
+  digestivo2:   {label:"DIGESTIVO II · Estómago e intestinos"},
   hepato:       {label:"DIGESTIVO III · Hígado, vesícula y páncreas"},
   urinario:     {label:"SISTEMA URINARIO · Riñón, uréter y vejiga"},
   respiratorio: {label:"SISTEMA RESPIRATORIO"},
@@ -301,6 +329,77 @@ const DECK_META = {
 };
 
 const DECKS = {
+  digestivo1: [
+    {q:"¿Cuáles son las cuatro capas de la pared del tubo digestivo, desde la luz hacia afuera?", a:["Serosa, muscular externa, submucosa y mucosa","Mucosa, submucosa, muscular externa y serosa/adventicia","Epitelio, lámina propia, submucosa y muscular","Mucosa, muscular de la mucosa, serosa y adventicia"], c:1, e:"Digestivo I · Plan general. El patrón se mantiene en todo el tubo, con adaptaciones según el órgano."},
+    {q:"Las tres subcapas de la mucosa digestiva son:", a:["Epitelio de revestimiento, lámina propia y muscular de la mucosa","Epitelio, submucosa y muscular externa","Mesotelio, lámina propia y adventicia","Epitelio, glándulas y plexo de Meissner"], c:0, e:"Digestivo I · Mucosa. Sus funciones: secreción, absorción, barrera y protección inmunitaria."},
+    {q:"En las zonas de fricción (esófago y conducto anal) el epitelio de la mucosa es:", a:["Cilíndrico simple","Cúbico simple","Plano estratificado no queratinizado","De transición"], c:2, e:"Digestivo I · Mucosa. En las zonas de digestión y absorción (estómago e intestinos) es cilíndrico simple."},
+    {q:"¿Dónde se aloja el GALT (tejido linfático asociado al intestino)?", a:["En la muscular externa","En la lámina propia de la mucosa","En la serosa","Dentro del epitelio de revestimiento únicamente"], c:1, e:"Digestivo I · Mucosa. Linfocitos, macrófagos y nódulos linfáticos que defienden contra patógenos ingeridos."},
+    {q:"La muscular de la mucosa (muscularis mucosae) está formada por:", a:["Músculo estriado esquelético en tres planos","Tejido conjuntivo denso irregular","Músculo liso en una capa circular interna y una longitudinal externa","Mesotelio y tejido conjuntivo laxo"], c:2, e:"Digestivo I · Mucosa. Produce movimientos propios de la mucosa que favorecen el contacto con el alimento y la secreción glandular."},
+    {q:"¿Qué tipo de tejido forma la submucosa?", a:["Tejido conjuntivo denso irregular","Músculo liso","Tejido conjuntivo denso regular","Tejido adiposo puro"], c:0, e:"Digestivo I · Submucosa. Sostiene la mucosa y lleva los vasos sanguíneos y linfáticos grandes."},
+    {q:"El plexo submucoso de Meissner inerva:", a:["Solo la capa longitudinal externa","Las células secretoras de las glándulas y el músculo liso de la muscularis mucosae","El mesotelio de la serosa","Los vasos linfáticos exclusivamente"], c:1, e:"Digestivo I · Submucosa. Es la red nerviosa entérica ubicada en la submucosa."},
+    {q:"¿Cuáles son los DOS únicos órganos del tubo digestivo con glándulas en la submucosa?", a:["Estómago y yeyuno","Esófago y duodeno","Duodeno e íleon","Esófago y estómago"], c:1, e:"Digestivo I · Submucosa. Esófago: glándulas esofágicas propiamente dichas. Duodeno: glándulas de Brunner."},
+    {q:"La contracción de la capa CIRCULAR INTERNA de la muscular externa produce:", a:["Peristaltismo que impulsa el alimento hacia adelante","Acortamiento del órgano","Movimientos de mezclado o segmentación","Movimientos independientes de la mucosa"], c:2, e:"Digestivo I · Muscular externa. La longitudinal externa acorta el órgano y genera el peristaltismo."},
+    {q:"¿Dónde se ubica exactamente el plexo mientérico de Auerbach?", a:["En la submucosa","Entre la capa circular interna y la longitudinal externa","En la lámina propia","Por fuera de la serosa"], c:1, e:"Digestivo I · Muscular externa. Controla la motilidad y la contracción de la muscular externa."},
+    {q:"¿Cuál es la diferencia entre serosa y adventicia?", a:["La serosa tiene mesotelio (peritoneo visceral); la adventicia no tiene mesotelio y fija el órgano a los tejidos vecinos","La adventicia tiene mesotelio y la serosa no","La serosa es músculo liso y la adventicia conjuntivo","No hay diferencia, son sinónimos"], c:0, e:"Digestivo I · Capa externa. La adventicia está en las porciones fijas o retroperitoneales, como el esófago torácico."},
+    {q:"La mucosa MASTICATORIA se localiza en las encías y el paladar duro y su epitelio es:", a:["Plano estratificado queratinizado o paraqueratinizado","Plano estratificado no queratinizado","Cilíndrico simple","Pseudoestratificado ciliado"], c:0, e:"Digestivo I · Cavidad bucal. Resiste la fricción violenta de la masticación."},
+    {q:"La mucosa de REVESTIMIENTO (labios, mejillas, piso de boca, paladar blando) posee:", a:["Epitelio plano estratificado queratinizado","Epitelio plano estratificado NO queratinizado, flexible y móvil","Epitelio cúbico simple","Botones gustativos abundantes"], c:1, e:"Digestivo I · Cavidad bucal. La mucosa especializada es la del dorso de la lengua, con papilas y botones gustativos."},
+    {q:"La musculatura de la lengua está formada por:", a:["Músculo liso en dos capas","Músculo estriado esquelético en tres planos perpendiculares entre sí","Músculo cardíaco","Músculo liso en tres planos"], c:1, e:"Digestivo I · Lengua. Esa disposición le da su gran movilidad."},
+    {q:"¿Qué papilas linguales son las más numerosas y NO tienen botones gustativos?", a:["Fungiformes","Caliciformes","Foliadas","Filiformes"], c:3, e:"Digestivo I · Lengua. Son cónicas, muy queratinizadas y su función es estrictamente mecánica: raspar y mover el alimento."},
+    {q:"Las papilas que se ven como puntos rojos en la punta y bordes de la lengua son:", a:["Fungiformes","Filiformes","Caliciformes","Foliadas"], c:0, e:"Digestivo I · Lengua. Tienen forma de hongo y poseen botones gustativos en su superficie apical."},
+    {q:"Las papilas caliciformes (circunvaladas) se caracterizan por:", a:["Ser las más numerosas y queratinizadas","Ser las más grandes (8 a 12), dispuestas en V lingual y rodeadas por un surco profundo","Ser pliegues paralelos en los bordes laterales","Carecer de botones gustativos"], c:1, e:"Digestivo I · Lengua. Sus paredes laterales contienen abundantes botones gustativos y no tienen queratina."},
+    {q:"¿Cuál es la función de las glándulas serosas de Von Ebner?", a:["Secretar moco viscoso para lubricar el bolo","Secretar un líquido acuoso que lava el surco y limpia los sabores","Producir saliva alcalina rica en bicarbonato","Secretar enzimas proteolíticas"], c:1, e:"Digestivo I · Lengua. Desembocan en la base del surco de las papilas caliciformes; también hay en las foliadas."},
+    {q:"Las papilas foliadas son:", a:["Pliegues paralelos con crestas bajas en los bordes laterales posteriores de la lengua","Papilas cónicas y queratinizadas","Papilas en forma de hongo","Papilas rodeadas por un surco circular profundo"], c:0, e:"Digestivo I · Lengua. Contienen botones gustativos y glándulas de Von Ebner, y no tienen queratina."},
+    {q:"El orificio apical de los botones gustativos se llama:", a:["Cripta gustativa","Fovéola","Poro gustativo","Vesícula olfatoria"], c:2, e:"Digestivo I · Botones gustativos. Son estructuras ovoides pálidas incrustadas en el epitelio."},
+    {q:"¿Qué célula del botón gustativo detecta los 5 sabores y hace sinapsis con los pares craneales VII, IX o X?", a:["Célula de soporte","Célula basal","Célula neuroepitelial (sensorial)","Célula de Paneth"], c:2, e:"Digestivo I · Botones gustativos. Usa receptores acoplados a proteína G (T1R, T2R) o canales iónicos para ácido y salado."},
+    {q:"¿Cada cuánto regeneran las células basales a las demás células del botón gustativo?", a:["Cada 10 días","Cada 3-5 días","Cada 120 días","No se regeneran"], c:0, e:"Digestivo I · Botones gustativos. Las células basales son las células madre ubicadas en la base."},
+    {q:"El esmalte dental se caracteriza por:", a:["Ser secretado toda la vida por los odontoblastos","Ser la sustancia más dura del cuerpo (96-98% hidroxiapatita) y NO poder regenerarse","Contener 65% de mineral y cubrir la raíz","Ser tejido conjuntivo laxo vascularizado"], c:1, e:"Digestivo I · Dientes. Lo producen los ameloblastos, que mueren al erupcionar el diente."},
+    {q:"La dentina es secretada durante toda la vida por:", a:["Los ameloblastos","Los cementoblastos","Los odontoblastos","Los osteoclastos"], c:2, e:"Digestivo I · Dientes. Sus cuerpos se ubican en el borde de la cavidad pulpar y emiten prolongaciones en los túbulos dentinarios."},
+    {q:"Las fibras de Sharpey del ligamento periodontal fijan la raíz al hueso alveolar a través del:", a:["Esmalte","Cemento","Pulpa dental","Hueso alveolar únicamente"], c:1, e:"Digestivo I · Dientes. El cemento es una capa delgada similar al hueso (65% mineral) producida por los cementoblastos."},
+    {q:"La glándula parótida está formada por:", a:["Acinos serosos, con abundante tejido adiposo","Acinos mucosos puros","Acinos mucosos y serosos (mucoserosa)","Acinos serosos y mucosos, con predominio mucoso"], c:0, e:"Digestivo I · Salivales. Es la más grande, subcutánea, en la región infratemporal."},
+    {q:"La glándula SUBMAXILAR es:", a:["Mucosa pura","Seromucosa: acinos serosos predominantes y mucosos","Mucoserosa, con predominio mucoso","Serosa pura"], c:1, e:"Digestivo I · Salivales. Se ubica en el triángulo submaxilar del cuello."},
+    {q:"La glándula SUBLINGUAL, ubicada en el piso de la boca, es:", a:["Serosa pura","Seromucosa con predominio seroso","Mucoserosa: acinos mucosos y serosos","Solo de conductos, sin adenómeros"], c:2, e:"Digestivo I · Salivales. Está bajo la lengua, en los pliegues sublinguales."},
+    {q:"¿Qué epitelio reviste el conducto INTERCALAR de las glándulas salivales?", a:["Simple cúbico","Simple cilíndrico","Pseudoestratificado cilíndrico","Plano estratificado"], c:0, e:"Digestivo I · Conductos. Intercalar: cúbico simple. Estriado: cúbico a cilíndrico simple. Excretor mayor: cilíndrico simple a pseudoestratificado o estratificado cúbico."},
+    {q:"El epitelio del esófago es:", a:["Cilíndrico simple con células caliciformes","Plano estratificado no queratinizado","Plano estratificado queratinizado","De transición"], c:1, e:"Digestivo I · Esófago. Resiste el roce del bolo alimenticio; en el corte transversal la luz tiene forma irregular."},
+    {q:"Las glándulas esofágicas PROPIAMENTE DICHAS se ubican en:", a:["La lámina propia","La submucosa","La muscular externa","La adventicia"], c:1, e:"Digestivo I · Esófago. Secretan moco viscoso para lubricar la luz. Las cardiales, en cambio, están en la lámina propia."},
+    {q:"En el TERCIO SUPERIOR del esófago, la muscular externa está formada por:", a:["100% músculo liso involuntario","Músculo estriado esquelético (deglución voluntaria)","Mezcla de estriado y liso","Músculo cardíaco"], c:1, e:"Digestivo I · Esófago. Tercio medio: mezcla de ambos. Tercio inferior: 100% músculo liso."},
+    {q:"La capa más externa del esófago es:", a:["Serosa en todo su trayecto","Adventicia en el trayecto torácico y una corta serosa tras atravesar el diafragma","Adventicia en toda su extensión","No tiene capa externa"], c:1, e:"Digestivo I · Esófago. Por eso el esófago torácico se considera retroperitoneal/fijo."}
+  ],
+  digestivo2: [
+    {q:"¿Cómo se llama la mezcla semilíquida ácida que produce el estómago?", a:["Bolo alimenticio","Quimo","Quilo","Bilis"], c:1, e:"Digestivo II · Estómago. Se divide en cardias, fondo, cuerpo y píloro."},
+    {q:"Los pliegues longitudinales de la mucosa gástrica que permiten la distensión del órgano se llaman:", a:["Rugae","Haustras","Válvulas de Kerckring","Columnas de Morgagni"], c:0, e:"Digestivo II · Estómago. Los pliegues circulares (Kerckring) son del intestino delgado."},
+    {q:"El epitelio de la mucosa gástrica está compuesto en su totalidad por:", a:["Células caliciformes","Células parietales","Células mucosas superficiales (cilíndrico simple)","Enterocitos con borde en cepillo"], c:2, e:"Digestivo II · Estómago. Secretan un moco alcalino rico en bicarbonato y potasio que forma un gel protector contra el HCl y la pepsina."},
+    {q:"Las invaginaciones de la mucosa gástrica donde desembocan las glándulas gástricas se llaman:", a:["Criptas de Lieberkühn","Fovéolas o criptas gástricas","Senos de Rokitansky-Aschoff","Vellosidades"], c:1, e:"Digestivo II · Estómago. Las criptas de Lieberkühn son las glándulas del intestino."},
+    {q:"La muscular externa del ESTÓMAGO se diferencia del resto del tubo porque tiene:", a:["Solo una capa longitudinal","Tres capas: oblicua interna, circular media y longitudinal externa","Músculo estriado esquelético","Tenias en lugar de capa continua"], c:1, e:"Digestivo II · Estómago. Esa capa oblicua extra permite el batido mecánico del quimo."},
+    {q:"¿Qué célula gástrica es grande, triangular, intensamente eosinófila y tiene canalículos intracelulares?", a:["Célula principal","Célula mucosa del cuello","Célula parietal (oxíntica)","Célula enteroendocrina"], c:2, e:"Digestivo II · Glándulas fúndicas. Sus canalículos tienen microvellosidades y abundantes mitocondrias."},
+    {q:"El HCl es secretado por las células parietales mediante:", a:["La bomba H/K ATPasa","Difusión simple","La bomba Na/K ATPasa","Exocitosis de gránulos de cimógeno"], c:0, e:"Digestivo II · Estómago. Genera un pH de 1.0-2.0 que activa el pepsinógeno, inicia la digestión de proteínas y destruye bacterias."},
+    {q:"El factor intrínseco, producido por las células parietales, es indispensable para:", a:["Activar el pepsinógeno","Absorber la vitamina B12 en el íleon","Neutralizar el quimo ácido","Emulsionar las grasas"], c:1, e:"Digestivo II · Estómago. Su falta provoca anemia perniciosa."},
+    {q:"Las células principales (adelomorfas) son basófilas, se ubican en la base de la glándula y secretan:", a:["HCl y factor intrínseco","Gastrina e histamina","Pepsinógeno y lipasa gástrica","Moco alcalino"], c:2, e:"Digestivo II · Estómago. El pepsinógeno es una proenzima inactiva que se convierte en pepsina al contactar con el HCl."},
+    {q:"¿Qué célula enteroendocrina secreta gastrina, estimulando la producción masiva de HCl?", a:["Célula G","Célula D","Célula ECL","Célula beta"], c:0, e:"Digestivo II · SNED/APUD. Las ECL secretan histamina (potente estimulador ácido) y las D somatostatina (inhibidora)."},
+    {q:"La somatostatina gástrica, que INHIBE la secreción de ácido, la producen las:", a:["Células G","Células ECL","Células D","Células madre del istmo"], c:2, e:"Digestivo II · SNED. Otras células enteroendocrinas secretan grelina, que estimula el hambre."},
+    {q:"¿Dónde están las células madre gástricas y cada cuánto renuevan el epitelio superficial?", a:["En la base de la glándula; cada 120 días","En el istmo de la glándula; cada 3-5 días","En la lámina propia; cada 10 días","En la submucosa; cada 30 días"], c:1, e:"Digestivo II · Estómago. Esa renovación rápida protege a la mucosa del ácido."},
+    {q:"En el PÍLORO, las glándulas y las fositas gástricas son:", a:["Glándulas tubulares enrolladas y ramificadas con fositas grandes y profundas","Glándulas tubulares simples con fositas cortas","Glándulas tortuosas con fositas ausentes","No hay glándulas"], c:0, e:"Digestivo II · Estómago. Sus células son secretoras de moco y enteroendocrinas; en el fundus las fositas son cortas."},
+    {q:"El CARDIAS se caracteriza por tener:", a:["Fositas gástricas grandes y células parietales abundantes","Glándulas tubulares tortuosas y a veces ramificadas, con fositas cortas y células secretoras de moco","Glándulas tubulares simples ramificadas con células principales","Vellosidades y células caliciformes"], c:1, e:"Digestivo II · Estómago. Las parietales y principales abundan sobre todo en el fundus/cuerpo."},
+    {q:"¿Cuáles son las TRES estructuras que multiplican más de 600 veces la superficie del intestino delgado?", a:["Rugae, fovéolas y criptas","Pliegues circulares, vellosidades y microvellosidades","Haustras, tenias y apéndices epiploicos","Placas de Peyer, criptas y glándulas de Brunner"], c:1, e:"Digestivo II · Intestino delgado. Se extiende más de 6 metros: duodeno, yeyuno e íleon."},
+    {q:"Los pliegues circulares o válvulas de Kerckring están formados por:", a:["Solo la mucosa","La mucosa y la submucosa","La muscular externa","La serosa y el mesotelio"], c:1, e:"Digestivo II · Intestino delgado. Son pliegues permanentes, a diferencia de las rugae gástricas."},
+    {q:"En el centro de cada vellosidad intestinal se encuentra:", a:["Un vaso quilífero central (capilar linfático ciego) y un capilar sanguíneo fenestrado","Una cripta de Lieberkühn","Una glándula de Brunner","Un nódulo linfático"], c:0, e:"Digestivo II · Intestino delgado. Por el quilífero se absorben las grasas en forma de quilomicrones."},
+    {q:"El borde en cepillo o chapa estriada del enterocito está formado por:", a:["Cilios móviles","Estereocilios","Microvellosidades con glucocáliz que contiene disacaridasas y peptidasas","Pliegues de la membrana basal"], c:2, e:"Digestivo II · Intestino delgado. Allí ocurre la digestión final de los nutrientes."},
+    {q:"Los enterocitos reesterifican los ácidos grasos absorbidos para sintetizar:", a:["Quilomicrones, que expulsan al vaso quilífero central","Glucógeno, que almacenan","Pepsinógeno","Bilis"], c:0, e:"Digestivo II · Intestino delgado. Los aminoácidos y monosacáridos, en cambio, van a los capilares sanguíneos."},
+    {q:"La proporción de células caliciformes en el intestino delgado:", a:["Disminuye desde el duodeno hacia el íleon","Aumenta progresivamente desde el duodeno hacia el íleon","Es constante en todo el trayecto","Solo existen en el duodeno"], c:1, e:"Digestivo II · Intestino delgado. Son glándulas unicelulares que secretan moco para lubricar el tránsito."},
+    {q:"Las células de Paneth se ubican en la base de las criptas de Lieberkühn y se reconocen por:", a:["Su citoplasma apical pálido y núcleo basal","Sus grandes gránulos apicales acidófilos y citoplasma basal basófilo","Sus canalículos intracelulares","Su borde en cepillo"], c:1, e:"Digestivo II · Intestino delgado. Secretan lisozima, defensinas y glucoproteínas antimicrobianas que regulan la microbiota."},
+    {q:"Las células M (con micropliegues) se ubican sobre las placas de Peyer y su función es:", a:["Absorber agua y electrólitos","Secretar moco alcalino","Atrapar antígenos de la luz y transportarlos por transcitosis a linfocitos y células dendríticas","Producir hormonas digestivas"], c:2, e:"Digestivo II · Intestino delgado. Así se activa la respuesta inmunitaria con IgA secretora."},
+    {q:"¿Qué hormona estimula la contracción de la vesícula biliar y la secreción de enzimas pancreáticas?", a:["Secretina","CCK (colecistoquinina)","GIP","Gastrina"], c:1, e:"Digestivo II · Células enteroendocrinas. La secretina estimula el bicarbonato pancreático y el GIP la liberación de insulina."},
+    {q:"La secretina, producida por las células enteroendocrinas intestinales, estimula:", a:["La secreción de bicarbonato por el páncreas para neutralizar el ácido","La producción de HCl","La liberación de insulina","La contracción de la vesícula biliar"], c:0, e:"Digestivo II · Células enteroendocrinas. El GIP es el que estimula la insulina."},
+    {q:"¿Cuál es la característica diagnóstica EXCLUSIVA del duodeno?", a:["Placas de Peyer masivas","Vellosidades largas sin glándulas submucosas","Glándulas de Brunner en la submucosa","Criptas rectas con muchas caliciformes"], c:2, e:"Digestivo II · Diferencias. Secretan moco alcalino (pH 8.1-9.3) y bicarbonato para neutralizar el quimo ácido gástrico."},
+    {q:"Un corte con vellosidades largas y prominentes, SIN glándulas en submucosa y SIN agregados masivos de nódulos linfáticos corresponde a:", a:["Duodeno","Yeyuno","Íleon","Colon"], c:1, e:"Digestivo II · Diferencias. Es el segmento 'intermedio': ni Brunner ni Peyer."},
+    {q:"La presencia masiva de placas de Peyer en lámina propia y submucosa identifica al:", a:["Duodeno","Yeyuno","Íleon","Apéndice"], c:2, e:"Digestivo II · Diferencias. Son grandes aglomerados de nódulos linfáticos."},
+    {q:"¿Cuál es la característica histológica clave de la mucosa del COLON?", a:["Tiene vellosidades más cortas que el íleon","NO tiene vellosidades: superficie lisa con criptas rectas y profundas, llenas de caliciformes","Tiene glándulas en la submucosa","Está revestida por epitelio plano estratificado"], c:1, e:"Digestivo II · Intestino grueso. En condiciones normales el adulto NO posee células de Paneth en el colon."},
+    {q:"Las tenias del colon son:", a:["Tres bandas gruesas longitudinales en que se condensa la capa longitudinal externa","Pliegues circulares de la mucosa","Proyecciones adiposas de la serosa","Agregados de nódulos linfáticos"], c:0, e:"Digestivo II · Intestino grueso. Su contracción forma las saculaciones de la pared llamadas haustras."},
+    {q:"Las pequeñas proyecciones adiposas colgantes de la serosa del colon se llaman:", a:["Haustras","Tenias","Apéndices omentales o epiploicos","Columnas anales"], c:2, e:"Digestivo II · Intestino grueso. La función principal del colon es reabsorber agua y electrólitos y compactar las heces."},
+    {q:"La característica histológica clave del apéndice vermiforme es:", a:["Una capa continua de abundantes nódulos linfáticos en lámina propia y submucosa que deforman la luz","La presencia de vellosidades largas","Las glándulas de Brunner","Las tenias del colon bien marcadas"], c:0, e:"Digestivo II · Intestino grueso. Es una evaginación con forma de dedo que sale del ciego."},
+    {q:"Los pliegues longitudinales del conducto anal se denominan:", a:["Válvulas de Kerckring","Columnas anales de Morgagni","Rugae","Haustras"], c:1, e:"Digestivo II · Conducto anal. Se divide en 3 zonas de transición epitelial."},
+    {q:"El epitelio de la Zona Escamosa (tercio inferior) del conducto anal es:", a:["Cilíndrico simple idéntico al recto","Estratificado cúbico o cilíndrico","Plano estratificado NO queratinizado, que se continúa con la piel perianal queratinizada","Urotelio"], c:2, e:"Digestivo II · Conducto anal. Zona colorrectal: cilíndrico simple. ZTA: estratificado cúbico/cilíndrico de transición."},
+    {q:"El esfínter anal EXTERNO está formado por:", a:["Un engrosamiento de la capa circular interna de músculo liso (involuntario)","Músculo estriado esquelético del periné (voluntario)","Músculo liso longitudinal","Tejido fibroelástico sin músculo"], c:1, e:"Digestivo II · Conducto anal. El esfínter interno sí es el engrosamiento involuntario de músculo liso."}
+  ],
   hepato: [
     {q:"¿Cómo se organizan los hepatocitos dentro del lobulillo hepático?", a:["En una sola capa plana continua","En cordones radiados desde la vena centrolobulillar hacia la periferia","En acinos serosos alrededor de un conducto","En islotes rodeados de tejido conectivo"], c:1, e:"Digestivo III · Hígado."},
     {q:"¿Qué tres estructuras forman la tríada portal (espacio porta)?", a:["Vena centrolobulillar, arteria hepática y hepatocitos","Capilar sinusoide, célula de Kupffer y hepatocito","Arteria hepática, vena porta y conducto biliar","Vena porta, vena centrolobulillar y célula estrellada"], c:2, e:"Digestivo III · Hígado."},
@@ -440,7 +539,7 @@ const DECKS = {
   ],
 };
 
-DECKS.todo = [].concat(DECKS.hepato, DECKS.urinario, DECKS.respiratorio, DECKS.linfatico, DECKS.cuestionario);
+DECKS.todo = [].concat(DECKS.digestivo1, DECKS.digestivo2, DECKS.hepato, DECKS.urinario, DECKS.respiratorio, DECKS.linfatico, DECKS.cuestionario);
 
 let mode = 'quiz';
 let currentDeck = 'hepato';
@@ -460,6 +559,8 @@ const finalEl = document.getElementById('final');
 
 function iconFor(deck){
   const map = {
+    digestivo1: document.querySelector('.deck-card.d1 .icon').innerHTML,
+    digestivo2: document.querySelector('.deck-card.d2 .icon').innerHTML,
     hepato: document.querySelector('.deck-card.a1 .icon').innerHTML,
     urinario: document.querySelector('.deck-card.a2 .icon').innerHTML,
     respiratorio: document.querySelector('.deck-card.a3 .icon').innerHTML,
